@@ -1,9 +1,9 @@
 {
-	"name": "laravel/laravel",
-	"description": "The Laravel Framework.",
-	"keywords": ["framework", "laravel"],
+	"name": "cacas/prescricoes_medicas",
+	"description": "Prescri√√es m√dicas digitalizadas",
+	"keywords": [],
 	"license": "MIT",
-	"type": "project",
+	"type": "application",
 	"require": {
 		"laravel/framework": "5.0.*"
 	},
