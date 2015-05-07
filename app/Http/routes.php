@@ -11,4 +11,4 @@
 |
 */
 
-Route::get('/', 'ServiceUnitsController@index');
+Route::get('/', 'UnidadesController@index');

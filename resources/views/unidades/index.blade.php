@@ -6,7 +6,7 @@
 	</div>
 	<ul>
 		@foreach ($unidades as $unidade)
-			<li><a href="/unidades/{{ $unidade->id }}">{{ $unidade->nome }}</a></li>
+			<li><a href="/unidades/{{ $unidade->codigo }}">{{ $unidade->nome }}</a></li>
 		@endforeach
 	</ul>
 @stop
