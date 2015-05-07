@@ -2,7 +2,7 @@
 
 @section('content')
 	<div class="page-header">
-		<h1>Selecione a unidade para iniciar o atendimento</h1>
+		<h1>Selecione uma unidade para iniciar o atendimento</h1>
 	</div>
 	<ul>
 		@foreach ($unidades as $unidade)
