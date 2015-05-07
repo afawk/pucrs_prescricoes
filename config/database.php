@@ -1,5 +1,11 @@
 <?php
 
+$url        = parse_url(env('DATABASE_URL', 'postgres://postgres:postges@localhost:5432/prescricoes_medicas'));
+$dbHost     = $url["host"];
+$dbUsername = $url["user"];
+$dbPassword = $url["pass"];
+$dbName     = substr($url["path"], 1);
+
 return [
 
 	/*
@@ -66,10 +72,10 @@ return [
 
 		'pgsql' => [
 			'driver'   => 'pgsql',
-			'host'     => env('DB_HOST', 'localhost'),
-			'database' => env('DB_DATABASE', 'prescricoes_medicas'),
-			'username' => env('DB_USERNAME', 'postgres'),
-			'password' => env('DB_PASSWORD', 'postgres'),
+			'host'     => $dbHost,
+			'database' => $dbName,
+			'username' => $dbUsername,
+			'password' => $dbPassword,
 			'charset'  => 'utf8',
 			'prefix'   => '',
 			'schema'   => 'public',
