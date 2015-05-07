@@ -1,5 +1,7 @@
 var elixir = require('laravel-elixir');
 
+elixir.config.sourcemaps = false;
+
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -13,4 +15,10 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
     mix.less('app.less');
+
+		mix.scripts([
+			'fix-for-ie10.js'
+		]);
+
+		mix.phpUnit();
 });
