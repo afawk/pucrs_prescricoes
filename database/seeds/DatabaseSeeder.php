@@ -3,6 +3,8 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Unidade;
+
 class DatabaseSeeder extends Seeder {
 
 	/**
@@ -14,7 +16,10 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
 
-		// $this->call('UserTableSeeder');
+		DB::table('unidade')->delete();
+		Unidade::create(['codigo' => 1, 'nome' => 'PEDIATRIA']);
+		Unidade::create(['codigo' => 2, 'nome' => 'RECUPERAÇÃO']);
+		Unidade::create(['codigo' => 3, 'nome' => 'PSIQUIATRIA']);
 	}
 
 }
