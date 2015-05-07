@@ -9,7 +9,12 @@ class ServiceUnitsController extends Controller {
 	 */
 	public function index()
 	{
-		return view('service_units.index');
+		//return view('service_units.index', ['unidades' => Unidade::all()]);
+
+		$unidades = [
+			(object)array('id' => 1, 'nome' => 'Unidade 1')
+		];
+		return view('service_units.index', ['unidades' => $unidades]);
 	}
 
 }
