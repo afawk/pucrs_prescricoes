@@ -12,3 +12,5 @@
 */
 
 Route::get('/', 'UnidadesController@index');
+Route::get('/unidades/{codUnidade}/atendimentos', 'AtendimentosController@index');
+Route::get('/atendimentos/{id}', 'AtendimentosController@show');

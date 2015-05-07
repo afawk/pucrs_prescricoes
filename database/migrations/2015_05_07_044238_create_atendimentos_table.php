@@ -17,7 +17,6 @@ class CreateAtendimentosTable extends Migration {
 			$table->increments('codigo');
 			$table->integer('cod_paciente');
 			$table->integer('cod_unidade');
-			$table->timestamps();
 		});
 	}
 
