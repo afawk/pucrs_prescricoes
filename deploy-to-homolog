@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -e
+
+if [ -z "${HEROKU_APP_NAME}" ]; then
+	echo 'You need to set the application name'
+	exit 1
+fi
+
+gulp --production
+git add public/css
+git add public/js
+git commit -m 'Recompile assets' || true
+
+echo 'Deploying to heroku'
+git push homolog master
+heroku run -a $HEROKU_APP_NAME ./artisan migrate --force
+heroku run -a $HEROKU_APP_NAME ./artisan db:seed --force
