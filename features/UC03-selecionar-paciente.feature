@@ -6,7 +6,7 @@ Funcionalidade: UC03 - Selecionar Paciente
   Cenário: TC03a - Selecionar paciente de uma unidade:
     Dado que eu estou logado no sistema
     Quando eu seleciono o paciente "João Silva" que está em atendimento na unidade "Pediatria"
-    Então eu devo ver uma mensagem indicando que não existem prescrições em aberto
+    Então eu devo ver uma mensagem indicando que não existem prescrições cadastradas para o paciente
     E eu devo ver um link para criar uma nova prescrição para o paciente
 
   Cenário: TC03b - Selecionar paciente com prescrição em aberto:
