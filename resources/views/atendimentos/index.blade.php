@@ -4,9 +4,15 @@
 	<div class="page-header">
 		<h1>Selecione um paciente para realizar o atendimento</h1>
 	</div>
-	<ul>
-		@foreach ($atendimentos as $atendimento)
-			<li><a href="/atendimentos/{{ $atendimento->codigo }}">{{ $atendimento->paciente->nome }}</a></li>
-		@endforeach
-	</ul>
+  @if(count($atendimentos) > 0)
+    <ul id="pacientes">
+      @foreach ($atendimentos as $atendimento)
+        <li><a href="/atendimentos/{{ $atendimento->codigo }}">{{ $atendimento->paciente->nome }}</a></li>
+      @endforeach
+    </ul>
+  @else
+    <div class="alert alert-danger">
+      <p>Esta unidade não possui pacientes em atendimento</p>
+    </div>
+  @endif
 @stop
