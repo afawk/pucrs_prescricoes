@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAtendimentosTable extends Migration {
+class AddFieldsAtendimentoTable extends Migration {
 
 	/**
 	 * Run the migrations.
