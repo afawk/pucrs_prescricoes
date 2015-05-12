@@ -14,10 +14,10 @@ class AddFieldsAtendimentosTable extends Migration {
 	{
 		Schema::table('atendimento', function(Blueprint $table)
 		{
-			$table->integer('medico_responsavel');
-			$table->date('data_inicio');
-			$table->date('data_fim');
-			$table->integer('cod_leito');
+			$table->integer('medico_responsavel')->nullable();
+			$table->date('data_inicio')->nullable();
+			$table->date('data_fim')->nullable();
+			$table->integer('cod_leito')->nullable();
 		});
 	}
 

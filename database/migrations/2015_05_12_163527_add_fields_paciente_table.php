@@ -13,9 +13,9 @@ class AddFieldsPacienteTable extends Migration {
 	public function up()
 	{
 		Schema::table('paciente', function(Blueprint $table) {
-			$table->string('sexo', 1);
-			$table->date('data_nascimento');
-			$table->bigInteger('cpf');
+			$table->string('sexo', 1)->nullable();
+			$table->date('data_nascimento')->nullable();
+			$table->bigInteger('cpf')->nullable();
 		});
 	}
 
