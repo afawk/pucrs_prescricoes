@@ -15,7 +15,7 @@ class CreateCadastroFrequenciaTable extends Migration {
 		Schema::create('cadastro_frequencia', function(Blueprint $table)
 		{
 			$table->increments('codigo');
-			$table->string('descricao', 150)
+			$table->string('descricao', 150);
 		});
 	}
 
