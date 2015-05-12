@@ -13,8 +13,9 @@ class AddUserCols extends Migration {
     public function up()
     {
         Schema::table('medico', function (Blueprint $table) {
-            $table->string('usuario', 150);
-            $table->string('senha', 150);
+            $table->string('usuario', 50);
+            $table->string('senha', 60);
+            $table->rememberToken();
         });
     }
 
