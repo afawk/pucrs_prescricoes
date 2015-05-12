@@ -4,7 +4,7 @@
 	<div class="page-header">
 		<h1>Selecione um paciente para realizar o atendimento</h1>
 	</div>
-	<ul>
+	<ul id="pacientes">
 		@foreach ($atendimentos as $atendimento)
 			<li><a href="/atendimentos/{{ $atendimento->codigo }}">{{ $atendimento->paciente->nome }}</a></li>
 		@endforeach
