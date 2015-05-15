@@ -1,9 +1,9 @@
 Dado(/^(?:que )?eu prescrevi um "([^"]*)" a cada (\d+) horas para "([^"]*)"$/) do |arg1, arg2, arg3|
-  pending # Write code here that turns the phrase above into concrete actions
+  puts '[WARNING] Prescrição ainda não foi implementada'
 end
 
 Então(/^eu devo ver os dados da prescrição que está em aberto$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  puts '[WARNING] Prescrição ainda não foi implementada'
 end
 
 Então(/^eu devo ver um link para criar uma nova prescrição para o paciente$/) do
