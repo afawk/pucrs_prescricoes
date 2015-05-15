@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', 'UnidadesController@index');
+Route::get('/', ['as' => 'home', 'uses' => 'UnidadesController@index']);
 Route::get('/unidades/{codUnidade}/atendimentos', 'AtendimentosController@index');
 Route::get('/atendimentos/{id}', 'AtendimentosController@show');
+Route::get('/login', 'AuthController@index');

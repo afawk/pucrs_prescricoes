@@ -1,10 +1,8 @@
 <?php
 
-$url        = parse_url(env('DATABASE_URL', 'postgres://postgres:postges@localhost:5432/prescricoes_medicas'));
-$dbHost     = $url["host"];
-$dbUsername = $url["user"];
-$dbPassword = $url["pass"];
-$dbName     = substr($url["path"], 1);
+$url = parse_url(
+    env('DATABASE_URL', 'postgres://postgres:postges@localhost:5432/prescricoes_medicas')
+);
 
 return [
 
@@ -58,37 +56,37 @@ return [
 			'prefix'   => '',
 		],
 
-		'mysql' => [
-			'driver'    => 'mysql',
-			'host'      => env('DB_HOST', 'localhost'),
-			'database'  => env('DB_DATABASE', 'forge'),
-			'username'  => env('DB_USERNAME', 'forge'),
-			'password'  => env('DB_PASSWORD', ''),
-			'charset'   => 'utf8',
-			'collation' => 'utf8_unicode_ci',
-			'prefix'    => '',
-			'strict'    => false,
-		],
+		// 'mysql' => [
+		// 	'driver'    => 'mysql',
+		// 	'host'      => env('DB_HOST', 'localhost'),
+		// 	'database'  => env('DB_DATABASE', 'forge'),
+		// 	'username'  => env('DB_USERNAME', 'forge'),
+		// 	'password'  => env('DB_PASSWORD', ''),
+		// 	'charset'   => 'utf8',
+		// 	'collation' => 'utf8_unicode_ci',
+		// 	'prefix'    => '',
+		// 	'strict'    => false,
+		// ],
 
 		'pgsql' => [
 			'driver'   => 'pgsql',
-			'host'     => $dbHost,
-			'database' => $dbName,
-			'username' => $dbUsername,
-			'password' => $dbPassword,
+			'host'     => $url['host'],
+			'database' => substr($url['path'], 1),
+			'username' => $url['user'],
+			'password' => $url['password'],
 			'charset'  => 'utf8',
 			'prefix'   => '',
 			'schema'   => 'public',
 		],
 
-		'sqlsrv' => [
-			'driver'   => 'sqlsrv',
-			'host'     => env('DB_HOST', 'localhost'),
-			'database' => env('DB_DATABASE', 'forge'),
-			'username' => env('DB_USERNAME', 'forge'),
-			'password' => env('DB_PASSWORD', ''),
-			'prefix'   => '',
-		],
+		// 'sqlsrv' => [
+		// 	'driver'   => 'sqlsrv',
+		// 	'host'     => env('DB_HOST', 'localhost'),
+		// 	'database' => env('DB_DATABASE', 'forge'),
+		// 	'username' => env('DB_USERNAME', 'forge'),
+		// 	'password' => env('DB_PASSWORD', ''),
+		// 	'prefix'   => '',
+		// ],
 
 	],
 
@@ -116,16 +114,16 @@ return [
 	|
 	*/
 
-	'redis' => [
+	// 'redis' => [
 
-		'cluster' => false,
+	// 	'cluster' => false,
 
-		'default' => [
-			'host'     => '127.0.0.1',
-			'port'     => 6379,
-			'database' => 0,
-		],
+	// 	'default' => [
+	// 		'host'     => '127.0.0.1',
+	// 		'port'     => 6379,
+	// 		'database' => 0,
+	// 	],
 
-	],
+	// ],
 
 ];
