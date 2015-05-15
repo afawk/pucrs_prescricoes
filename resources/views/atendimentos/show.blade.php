@@ -4,11 +4,11 @@
 	<div class="page-header">
 		<h1>{{ $atendimento->paciente->nome }} <span class="badge">{{ $atendimento->unidade->nome }}</span></h1>
 	</div>
-	<dl class="dl-horizontal">
+	<dl id="paciente" class="dl-horizontal">
 		<dt>Sexo</dt>
 		<dd>{{ sexo($atendimento->paciente->sexo) }}</dd>
 		<dt>CPF</dt>
-		<dd>{{ $atendimento->paciente->cpf }}</dd>
+		<dd>{{ cpf($atendimento->paciente->cpf) }}</dd>
 		<dt>Data de Nascimento</dt>
 		<dd>{{ date("d/m/Y", strtotime($atendimento->paciente->data_nascimento)) }}</dd>
 		<dt>Idade</dt>
