@@ -18,11 +18,21 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
 
+		$this->seedUnidades();
+		$this->seedPacientes();
+		$this->seedAtendimentos();
+	}
+
+	private function seedUnidades()
+	{
 		DB::table('unidade')->delete();
 		Unidade::create(['codigo' => 1, 'nome' => 'PEDIATRIA']);
 		Unidade::create(['codigo' => 2, 'nome' => 'RECUPERAÇÃO']);
 		Unidade::create(['codigo' => 3, 'nome' => 'PSIQUIATRIA']);
+	}
 
+	private function seedPacientes()
+	{
 		DB::table('paciente')->delete();
 		Paciente::create(['registro' => 1, 'nome' => 'ADALBERTO DA SILVA DOMINGOS']);
 		Paciente::create(['registro' => 2, 'nome' => 'MARCELO SANTOS SILVEIRA']);
@@ -30,7 +40,9 @@ class DatabaseSeeder extends Seeder {
 		Paciente::create(['registro' => 4, 'nome' => 'MAICON GONCALVES']);
 		Paciente::create(['registro' => 5, 'nome' => 'VANIA PASCOAL SILVEIRA']);
 		Paciente::create(['registro' => 6, 'nome' => 'VERA LUCIA MACIEL']);
+	}
 
+	private function seedAtendimentos() {
 		DB::table('atendimento')->delete();
 		Atendimento::create(['codigo' => 1, 'cod_unidade' => 1, 'cod_paciente' => 1]);
 		Atendimento::create(['codigo' => 2, 'cod_unidade' => 2, 'cod_paciente' => 2]);
