@@ -34,12 +34,48 @@ class DatabaseSeeder extends Seeder {
 	private function seedPacientes()
 	{
 		DB::table('paciente')->delete();
-		Paciente::create(['registro' => 1, 'nome' => 'ADALBERTO DA SILVA DOMINGOS']);
-		Paciente::create(['registro' => 2, 'nome' => 'MARCELO SANTOS SILVEIRA']);
-		Paciente::create(['registro' => 3, 'nome' => 'ROBERTO SANTOS']);
-		Paciente::create(['registro' => 4, 'nome' => 'MAICON GONCALVES']);
-		Paciente::create(['registro' => 5, 'nome' => 'VANIA PASCOAL SILVEIRA']);
-		Paciente::create(['registro' => 6, 'nome' => 'VERA LUCIA MACIEL']);
+		Paciente::create([
+			'registro'        => 1,
+			'nome'            => 'ADALBERTO DA SILVA DOMINGOS',
+			'sexo'            => 'M',
+			'data_nascimento' => '2003-02-01',
+			'cpf'             => 83079629001
+		]);
+		Paciente::create([
+			'registro'        => 2,
+			'nome'            => 'MARCELO SANTOS SILVEIRA',
+			'sexo'            => 'M',
+			'data_nascimento' => '2000-05-03',
+			'cpf'             => 83079629002
+		]);
+		Paciente::create([
+			'registro'        => 3,
+			'nome'            => 'ROBERTO SANTOS',
+			'sexo'            => 'M',
+			'data_nascimento' => '1998-01-07',
+			'cpf'             => 83079629003
+		]);
+		Paciente::create([
+			'registro'        => 4,
+			'nome'            => 'MAICON GONCALVES',
+			'sexo'            => 'M',
+			'data_nascimento' => '2001-02-06',
+			'cpf'             => 83079629004
+		]);
+		Paciente::create([
+			'registro'        => 5,
+			'nome'            => 'VANIA PASCOAL SILVEIRA',
+			'sexo'            => 'F',
+			'data_nascimento' => '2003-09-09',
+			'cpf'             => 83079629005
+		]);
+		Paciente::create([
+			'registro'        => 6,
+			'nome'            => 'VERA LUCIA MACIEL',
+			'sexo'            => 'F',
+			'data_nascimento' => '1985-05-08',
+			'cpf'             => 83079629006
+		]);
 	}
 
 	private function seedAtendimentos() {
