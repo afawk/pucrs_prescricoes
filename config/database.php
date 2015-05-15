@@ -73,7 +73,7 @@ return [
 			'host'     => $url['host'],
 			'database' => substr($url['path'], 1),
 			'username' => $url['user'],
-			'password' => $url['password'],
+			'password' => $url['pass'],
 			'charset'  => 'utf8',
 			'prefix'   => '',
 			'schema'   => 'public',

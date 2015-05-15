@@ -11,7 +11,25 @@
 |
 */
 
-Route::get('/', ['as' => 'home', 'uses' => 'UnidadesController@index']);
-Route::get('/unidades/{codUnidade}/atendimentos', 'AtendimentosController@index');
-Route::get('/atendimentos/{id}', 'AtendimentosController@show');
-Route::get('/login', 'AuthController@index');
+// Não precisam de login
+Route::get('/auth/login',
+    ['as' => 'login', 'uses' =>'AuthController@index']
+);
+Route::post('/auth/login', 'AuthController@create');
+// %$%#$%#$
+
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/',
+        ['as' => 'home', 'uses' => 'UnidadesController@index']
+    );
+
+    Route::get('/unidades/{codUnidade}/atendimentos', 'AtendimentosController@index')
+        ->where('codUnidade', '[0-9]+');
+
+    Route::get('/atendimentos/{id}', 'AtendimentosController@show')
+        ->where('id', '[0-9]+');
+
+    Route::get('/auth/logout',
+        ['as' => 'logout', 'uses' =>'AuthController@destroy']
+    );
+});

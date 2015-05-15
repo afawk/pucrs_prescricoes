@@ -5,12 +5,12 @@
 	"license": "MIT",
 	"type": "application",
 	"require": {
-		"laravel/framework": "5.0.*",
+		"laravel/framework": "5.*",
 		"ext-mbstring": "*",
 		"ext-mcrypt": "*"
 	},
 	"require-dev": {
-		"way/generators": "~2.0",
+		"way/generators": "*",
 		"phpunit/phpunit": "~4.0",
 		"phpspec/phpspec": "~2.1",
 		"heroku/heroku-buildpack-php": "*"
