@@ -6,7 +6,7 @@
 	</div>
 	<dl class="dl-horizontal">
 		<dt>Sexo</dt>
-		<dd>{{ $atendimento->paciente->sexo }}</dd>
+		<dd>{{ sexo($atendimento->paciente->sexo) }}</dd>
 		<dt>CPF</dt>
 		<dd>{{ $atendimento->paciente->cpf }}</dd>
 		<dt>Data de Nascimento</dt>
