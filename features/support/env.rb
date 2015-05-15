@@ -2,6 +2,8 @@ require 'capybara/poltergeist'
 require 'capybara/cucumber'
 require 'sequel'
 
+require 'active_support/all'
+
 Capybara.current_driver    = :poltergeist
 Capybara.default_driver    = :poltergeist
 Capybara.javascript_driver = :poltergeist

@@ -1,5 +1,5 @@
-Before do |scenario|
+Before do |_|
+  PrescricoesDB[:atendimento].delete
   PrescricoesDB[:paciente].delete
   PrescricoesDB[:unidade].delete
-  PrescricoesDB[:atendimento].delete
 end

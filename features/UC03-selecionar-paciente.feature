@@ -8,6 +8,7 @@ Funcionalidade: UC03 - Selecionar Paciente
     Quando eu seleciono o paciente "João Silva" que está em atendimento na unidade "Pediatria"
     Então eu devo ver uma mensagem indicando que não existem prescrições cadastradas para o paciente
     E eu devo ver um link para criar uma nova prescrição para o paciente
+    E eu devo ver o CPF, sexo, data de nascimento e idade do paciente
 
   Cenário: TS03b - Selecionar paciente com prescrição em aberto:
     Dado que eu estou logado no sistema
