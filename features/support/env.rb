@@ -4,9 +4,11 @@ require 'sequel'
 
 require 'active_support/all'
 
-Capybara.current_driver    = :poltergeist
-Capybara.default_driver    = :poltergeist
-Capybara.javascript_driver = :poltergeist
+driver = ENV.fetch('JS_DRIVER', 'poltergeist').to_sym
+
+Capybara.current_driver    = driver
+Capybara.default_driver    = driver
+Capybara.javascript_driver = driver
 Capybara.run_server        = false
 
 if ENV['HEROKU_APP_NAME']
