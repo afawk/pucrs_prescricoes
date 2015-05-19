@@ -1,7 +1,6 @@
 <?php namespace App\Http\Controllers;
 
 use Auth;
-//use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
@@ -14,7 +13,7 @@ class AuthController extends Controller {
 	public function index()
 	{
 		if (Auth::check()) {
-			return redirect()->intended('home');
+			return redirect()->intended('/');
 		}
 
 		return view('auth.index');
@@ -26,15 +25,16 @@ class AuthController extends Controller {
 	public function create(Request $request)
 	{
 		$data = [
-			'usuario' => $request->input('userinpt'),
-			'senha'   => $request->input('pssinpt'),
+			'usuario'  => $request->input('userinpt'),
+			'password' => $request->input('pssinpt'),
 		];
 
 		if (Auth::attempt($data)) {
-			echo 'oi';
-		}
-		else {
-			echo 'fuu';
+			return redirect()->intended('home');
+		} else {
+			return redirect()->back()
+												->withInput()
+												->with('alert', 'Usuário e / ou senha inválido');
 		}
 	}
 
@@ -44,7 +44,7 @@ class AuthController extends Controller {
 	public function destroy()
 	{
 		Auth::logout();
-		return redirect()->intended('login');
+		return redirect()->intended('/');
 	}
 
 }

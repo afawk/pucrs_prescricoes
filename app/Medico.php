@@ -31,4 +31,10 @@ class Medico extends Model implements AuthenticatableContract, CanResetPasswordC
 	 */
 	protected $hidden = ['senha', 'remember_token'];
 
+	protected $primaryKey = 'crm';
+	public $timestamps = false;
+
+	public function getAuthPassword() {
+		return $this->senha;
+	}
 }

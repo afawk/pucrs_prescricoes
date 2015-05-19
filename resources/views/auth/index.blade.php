@@ -3,7 +3,10 @@
 @section('content')
   <div class="col-md-3"></div>
   <div class="center-block col-md-6">
+
     <form class="form-horizontal" method="post">
+        <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+
         <fieldset>
 
         <legend>Efetue seu acesso</legend>
@@ -11,9 +14,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="userinpt">Usuário</label>
             <div class="col-md-8">
-                <input id="userinpt" name="userinpt" type="text" class="form-control input-md">
-                <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-                <!-- <span class="help-block">help</span> -->
+                <input id="userinpt" name="userinpt" value="{{ old('userinpt') }}" type="text" class="form-control input-md">
             </div>
         </div>
 
@@ -34,8 +35,13 @@
         </div>
 
         </fieldset>
+
+
+        @if(Session::has('alert'))
+          <div class="alert alert-danger">
+            <p>{{ Session::get('alert') }}</p>
+          </div>
+        @endif
     </form>
   </div>
-  <div class="col-md-3"></div>
-
 @stop
