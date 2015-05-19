@@ -16,7 +16,7 @@ return [
 	|
 	*/
 
-	'driver' => env('SESSION_DRIVER', 'file'),
+	'driver' => env('SESSION_DRIVER', 'database'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -57,7 +57,7 @@ return [
 	|
 	*/
 
-	'files' => storage_path().'/framework/sessions',
+	'files' => null, // storage_path().'/framework/sessions',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -70,7 +70,7 @@ return [
 	|
 	*/
 
-	'connection' => null,
+	'connection' => 'pgsql',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -109,7 +109,7 @@ return [
 	|
 	*/
 
-	'cookie' => '_session',
+	'cookie' => 'prescricoes',
 
 	/*
 	|--------------------------------------------------------------------------
