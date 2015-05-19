@@ -16,8 +16,8 @@ if ENV['HEROKU_APP_NAME']
   Capybara.app_host = "http://#{ENV['HEROKU_APP_NAME']}.herokuapp.com"
 
 else
-  $conn_string = 'postgres://postgres:postges@localhost:5432/prescricoes_medicas'
-  Capybara.app_host = 'http://localhost:8080'
+  $conn_string = 'postgres://postgres:postgres@localhost:5432/prescricoes_medicas-features'
+  Capybara.app_host = 'http://localhost:8081'
 end
 
 PrescricoesDB = Sequel.connect($conn_string)
