@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder {
 		$this->seedUnidades();
 		$this->seedPacientes();
 		$this->seedAtendimentos();
+		$this->seedMedicos();
 	}
 
 	private function seedUnidades()
@@ -87,8 +88,16 @@ class DatabaseSeeder extends Seeder {
 		Atendimento::create(['codigo' => 4, 'cod_unidade' => 3, 'cod_paciente' => 4]);
 		Atendimento::create(['codigo' => 5, 'cod_unidade' => 3, 'cod_paciente' => 5]);
 		Atendimento::create(['codigo' => 6, 'cod_unidade' => 3, 'cod_paciente' => 6]);
+	}
 
+	private function seedMedicos() {
 		DB::table('medico')->delete();
-		//Medico::create(['']);
+
+		Medico::create([
+			'crm'     => '1234567',
+			'nome'    => 'Médico 1',
+			'usuario' => 'medico1@hospital.org',
+			'senha'   => Hash::make('password'),
+		]);
 	}
 }
