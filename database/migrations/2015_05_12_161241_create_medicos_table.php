@@ -17,8 +17,8 @@ class CreateMedicosTable extends Migration {
 			$table->bigInteger('crm');
 			$table->string('nome', 150);
 			$table->string('usuario', 50);
-            $table->string('senha', 60);
-            $table->rememberToken();
+			$table->string('senha', 60);
+			$table->rememberToken();
 		});
 	}
 
