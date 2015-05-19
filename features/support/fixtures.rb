@@ -1,5 +1,13 @@
 module Fixtures
   class << self
+    def medico(email, senha)
+      medico = PrescricoesDB[:medico].where(usuario: email).first
+      return medico if medico
+
+      PrescricoesDB[:medico].insert(MEDICOS.fetch(email).merge(senha: Helpers.hash_senha(senha)))
+      PrescricoesDB[:medico].where(usuario: email).first
+    end
+
     # Cria um paciente com o nome passado como parametro ou retorna o registro
     # associado caso ele já exista
     def paciente(nome)
@@ -42,6 +50,14 @@ module Fixtures
         cpf:             '12345678902',
         data_nascimento: '2011-02-05'
       },
+    }
+
+    MEDICOS = {
+      'medico@hospital.org' => {
+        crm:     '1234567',
+        usuario: 'medico@hospital.org',
+        nome:    'Medico 1',
+      }
     }
   end
 end

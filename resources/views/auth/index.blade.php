@@ -4,7 +4,7 @@
   <div class="col-md-3"></div>
   <div class="center-block col-md-6">
 
-    <form class="form-horizontal" method="post">
+    <form id="login" class="form-horizontal" method="post">
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 
         <fieldset>

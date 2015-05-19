@@ -1,5 +1,6 @@
 Então(/^eu devo ver a tela de seleção de unidades$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(page).to have_content('Selecione uma unidade para iniciar o atendimento')
+  expect(page).to have_selector('ul#unidades')
 end
 
 Quando(/^eu seleciono a unidade "([^"]*)"$/) do |unidade|
