@@ -2,6 +2,8 @@
 
 set -e
 
+HEROKU_APP_NAME=${HEROKU_APP_NAME:-$(git config --get prescricoes.prod)}
+
 if [ -z "${HEROKU_APP_NAME}" ]; then
 	echo 'You need to set the application name'
 	exit 1
