@@ -30,7 +30,10 @@
 				</div>
 				<div id="navbar" class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li><a href="/">Selecionar Unidade</a></li>
+						@if(Auth::check())
+							<li><a href="/">Selecionar Unidade</a></li>
+							<li><a href="/auth/logout">Sair do sistema</a></li>
+						@endif
 					</ul>
 				</div><!--/.nav-collapse -->
 			</div>
