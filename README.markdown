@@ -11,6 +11,7 @@ Aplicação:
 
 - [PostgreSQL](http://www.postgresql.org/)
 - [PHP](http://php.net/) 5.6+
+- [Composer](https://getcomposer.org/)
 - [nodejs](https://nodejs.org/) e [npm](https://www.npmjs.com/) (necessários apenas para a compilação de código javascript e CSS)
 
 Testes funcionais:
@@ -22,8 +23,9 @@ Testes funcionais:
 ## Setup inicial
 
 1. Criar o banco de dados `prescricoes_medicas` no PostgreSQL
-2. Rodar `php artisan migrate`
-3. Rodar `php artisan db:seed`
+2. Rodar `composer install`
+3. Rodar `php artisan migrate`
+4. Rodar `php artisan db:seed`
 
 ## Iniciar servidor de desenvolvimento
 
