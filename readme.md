@@ -1,1 +1,0 @@
-## Prescrições Médicas - PUCRS
