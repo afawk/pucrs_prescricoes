@@ -30,7 +30,7 @@ class AuthController extends Controller {
 		];
 
 		if (Auth::attempt($data)) {
-			return redirect()->intended('home');
+			return redirect()->intended('/');
 		} else {
 			return redirect()->back()
 												->withInput()
