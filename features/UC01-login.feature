@@ -18,3 +18,8 @@ Funcionalidade: UC01 - Login
     Dado que eu estou registrado no sistema com o email "medico@hospital.org" e a senha "xpto-senha"
     Quando eu tento realizar login com "medico@hospital.org" e "senha-invalida"
     Então eu devo ver o formulário de login com uma mensagem de erro
+
+  Cenário: TS01d - Realizar logout do sistema
+    Dado que eu estou logado no sistema
+    Quando eu realizo o logout
+    Então eu devo ver o formulário de login
