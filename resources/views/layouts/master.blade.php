@@ -13,7 +13,7 @@
 		<![endif]-->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-		<link rel="stylesheet" href="/css/app.css">
+		<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 	</head>
 	<body>
 		<!-- Fixed navbar -->
@@ -31,8 +31,9 @@
 				<div id="navbar" class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
 						@if(Auth::check())
-							<li><a href="/">Selecionar Unidade</a></li>
-							<li><a href="/auth/logout">Sair do sistema</a></li>
+							<li><a href="{{ route('home') }}">Selecionar Unidade</a></li>
+							<li><a>{{ Auth::user()->nome }}</a></li>
+							<li><a href="{{ route('logout') }}">Sair</a></li>
 						@endif
 					</ul>
 				</div><!--/.nav-collapse -->
@@ -53,6 +54,6 @@
 -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-		<script src="/js/all.js"></script>
+		<script src="{{ asset('js/all.js') }}"></script>
 	</body>
 </html>

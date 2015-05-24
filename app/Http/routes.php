@@ -12,24 +12,34 @@
 */
 
 // Não precisam de login
-Route::get('/auth/login',
-    ['as' => 'login', 'uses' =>'AuthController@index']
-);
+Route::get('/auth/login', [
+    'as' => 'login',
+    'uses' =>'AuthController@index'
+]);
+
 Route::post('/auth/login', 'AuthController@create');
 // %$%#$%#$
 
 Route::group(['middleware' => 'auth'], function(){
-    Route::get('/',
-        ['as' => 'home', 'uses' => 'UnidadesController@index']
-    );
+    Route::get('/', [
+        'as' => 'home',
+        'uses' => 'UnidadesController@index'
+    ]);
 
-    Route::get('/unidades/{codUnidade}/atendimentos', 'AtendimentosController@index')
-        ->where('codUnidade', '[0-9]+');
+    Route::get('/unidades/{codUnidade}/atendimentos', [
+        'as' => 'atendimentoUnidades',
+        'uses' => 'AtendimentosController@index'
+    ])
+    ->where('codUnidade', '[0-9]+');
 
-    Route::get('/atendimentos/{id}', 'AtendimentosController@show')
-        ->where('id', '[0-9]+');
+    Route::get('/atendimentos/{id}', [
+        'as' => 'atendimentoShow',
+        'uses' => 'AtendimentosController@show'
+    ])
+    ->where('id', '[0-9]+');
 
-    Route::get('/auth/logout',
-        ['as' => 'logout', 'uses' =>'AuthController@destroy']
-    );
+    Route::get('/auth/logout', [
+        'as' => 'logout',
+        'uses' =>'AuthController@destroy'
+    ]);
 });

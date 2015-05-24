@@ -17,7 +17,7 @@
 	<div class="alert alert-info">
 		<p>
 			Este paciente não possui nenhuma prescrição cadastrada
-			<a class="btn btn-primary" href="javascript:alert('Prescrição não foi implementada')">Criar Prescrição</a>
+			<a class="btn btn-primary">Criar Prescrição</a>
 		</p>
 	</div>
 @stop

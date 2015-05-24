@@ -7,7 +7,7 @@
   @if(count($atendimentos) > 0)
     <ul id="pacientes">
       @foreach ($atendimentos as $atendimento)
-        <li><a href="/atendimentos/{{ $atendimento->codigo }}">{{ $atendimento->paciente->nome }}</a></li>
+        <li><a href="{{ route('atendimentoShow', [$atendimento->codigo]) }}">{{ $atendimento->paciente->nome }}</a></li>
       @endforeach
     </ul>
   @else
