@@ -63,6 +63,12 @@ git config --add prescricoes.prod NOME_DA_APP_DO_HEROKU
 ./deploy-to-prod
 ```
 
+## Execução de testes de integração / unitários
+
+```sh
+phpunit
+```
+
 ## Execução de testes funcionais
 
 _NOTA_: Os testes funcionam apenas a partir de uma máquina Linux
