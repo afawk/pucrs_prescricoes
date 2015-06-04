@@ -19,7 +19,7 @@ end
 Quando(/^eu realizo o logout$/) do
   visit '/'
   within '.navbar' do
-    click_link 'Sair do sistema'
+    click_link 'Sair'
   end
 end
 
