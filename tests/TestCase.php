@@ -9,6 +9,7 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
 	 */
 	public function createApplication()
 	{
+		putenv('DB_DEFAULT=postgres://postgres:postgres@localhost:5432/prescricoes_medicas-unit');
 		$app = require __DIR__.'/../bootstrap/app.php';
 
 		$app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();
@@ -16,4 +17,16 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
 		return $app;
 	}
 
+
+	public function setUp()
+	{
+		parent::setUp();
+		Artisan::call('migrate');
+	}
+
+	public function tearDown()
+	{
+		Artisan::call('migrate:reset');
+		parent::tearDown();
+	}
 }
