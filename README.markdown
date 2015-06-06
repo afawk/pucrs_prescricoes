@@ -22,7 +22,7 @@ Testes funcionais:
 
 ## Setup inicial
 
-1. Criar o banco de dados `prescricoes_medicas` no PostgreSQL
+1. Criar o banco de dados `prescricoes_medicas` e `prescricoes_medicas-unit` no PostgreSQL
 2. Rodar `composer install`
 3. Rodar `php artisan migrate`
 4. Rodar `php artisan db:seed`
@@ -63,6 +63,12 @@ git config --add prescricoes.prod NOME_DA_APP_DO_HEROKU
 ./deploy-to-prod
 ```
 
+## Execução de testes de integração / unitários
+
+```sh
+phpunit
+```
+
 ## Execução de testes funcionais
 
 _NOTA_: Os testes funcionam apenas a partir de uma máquina Linux
@@ -81,7 +87,7 @@ Setup e inicialização do servidor de testes:
 
 ```sh
 export DATABASE_URL='postgres://postgres:postges@localhost:5432/prescricoes_medicas-features'
-php artisan migrate
+php artisan migrate --force
 php artisan serve --port 8081 --host 0.0.0.0
 ```
 
