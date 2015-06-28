@@ -17,7 +17,7 @@
 	<div class="alert alert-info">
 		<p>
 			Este paciente não possui nenhuma prescrição cadastrada
-			<a class="btn btn-primary" href="#">Criar Prescrição</a>
+			<a class="btn btn-primary" href="{{ route('criarPrescricao', [$atendimento->paciente->registro]) }}">Criar Prescrição</a>
 		</p>
 	</div>
 @stop
