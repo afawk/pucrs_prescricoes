@@ -21,7 +21,7 @@ class PrescricoesController extends Controller {
 			->with('Unidade')
 			->with('Medicamentos')
 			->with('Medico')
-			->where(['cod' => $id])
+			->where(['cod' => $idPaciente])
 			->get();
 
 		return view('prescricoes.index', ['prescricao' => $prescricao[0]]);
@@ -35,7 +35,7 @@ class PrescricoesController extends Controller {
 	 */
 	public function create($idPaciente)
 	{
-		$paciente = Paciente::where(['registro' => $id])->get();
+		$paciente = Paciente::where(['registro' => $idPaciente])->get();
 		return view('prescricoes.create', ['paciente' => $paciente[0]]);
 	}
 
@@ -45,9 +45,9 @@ class PrescricoesController extends Controller {
 	 * @param  int  $idPaciente
 	 * @return Response
 	 */
-	public function store($idPaciente)
+	public function store(Request $request, $idPaciente)
 	{
-		//
+		print_r($request->all());
 	}
 
 	/**

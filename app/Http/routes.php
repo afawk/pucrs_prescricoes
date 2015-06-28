@@ -38,37 +38,37 @@ Route::group(['middleware' => 'auth'], function(){
     ])
     ->where('id', '[0-9]+');
 
-    Route::get('/prescricao/{idPaciente}', [
-        'as' => 'visualizarPrescricaoAtual',
-        'uses' => 'PrescricoesController@index'
-    ])
-    ->where('idPaciente', '[0-9]+');
+    Route::group(['prefix' => '/prescricao'], function() {
+        Route::get('/{idPaciente}', [
+            'as' => 'visualizarPrescricaoAtual',
+            'uses' => 'PrescricoesController@index'
+        ])
+        ->where('idPaciente', '[0-9]+');
 
-    Route::get('/prescricao/{idPaciente}/create', [
-        'as' => 'criarPrescricao',
-        'uses' => 'PrescricoesController@create'
-    ])
-    ->where('idPaciente', '[0-9]+');
+        Route::get('/{idPaciente}/create', [
+            'as' => 'criarPrescricao',
+            'uses' => 'PrescricoesController@create'
+        ])
+        ->where('idPaciente', '[0-9]+');
 
-    Route::post('/prescricao/{idPaciente}/create', [
-        'as'   => 'criarPrescricaoPost',
-        'uses' => 'PrescricoesController@store'
-    ])
-    ->where('idPaciente', '[0-9]+');
+        Route::post('/{idPaciente}/create', [
+            'as'   => 'criarPrescricaoPost',
+            'uses' => 'PrescricoesController@store'
+        ])
+        ->where('idPaciente', '[0-9]+');
 
-    Route::get('/prescricao/{idPaciente}/{id}', [
-        'as' => 'visualizarPrescricao',
-        'uses' => 'PrescricoesController@show'
-    ])
-    ->where('idPaciente', '[0-9]+')
-    ->where('id', '[0-9]+');
+        Route::get('/{idPaciente}/{id}', [
+            'as' => 'visualizarPrescricao',
+            'uses' => 'PrescricoesController@show'
+        ])
+        ->where('idPaciente', '[0-9]+')
+        ->where('id', '[0-9]+');
+    });
 
-    // Route::post('/prescricao/{idPaciente}/{id}', [
-    //     'as' => 'editarPrescricao',
-    //     'uses' => 'PrescricoesController@update'
-    // ])
-    // ->where('idPaciente', '[0-9]+')
-    // ->where('id', '[0-9]+');
+    Route::get('/searchable', [
+        'as' => 'searchableItem',
+        'uses' => 'SearchController@index',
+    ]);
 
     Route::get('/auth/logout', [
         'as' => 'logout',

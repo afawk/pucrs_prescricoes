@@ -1,7 +1,7 @@
 <?php
 
 $url = parse_url(
-    env('DATABASE_URL', 'postgres://postgres:postges@localhost:5432/prescricoes_medicas')
+    env('DATABASE_URL', 'postgres://postgres:postgres@localhost:5432/prescricoes_medicas')
 );
 
 return [
