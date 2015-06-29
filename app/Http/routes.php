@@ -74,4 +74,9 @@ Route::group(['middleware' => 'auth'], function(){
         'as' => 'logout',
         'uses' =>'AuthController@destroy'
     ]);
+
+    Route::get('/sessions', [
+        'as' => 'sessions',
+        'uses' =>'SessionsController@index'
+    ]);
 });

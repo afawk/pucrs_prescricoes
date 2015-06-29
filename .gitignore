@@ -4,3 +4,5 @@ composer.lock
 .env
 .phpintel
 .bundle/
+.idea
+devstep.yml
