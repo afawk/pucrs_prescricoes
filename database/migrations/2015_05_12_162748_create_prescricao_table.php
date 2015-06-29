@@ -15,7 +15,7 @@ class CreatePrescricaoTable extends Migration {
 		Schema::create('prescricao', function(Blueprint $table)
 		{
 			$table->increments('codigo');
-			$table->dateTime('data_hora_liberacao');
+			$table->dateTime('data_hora_liberacao')->nullable();
 			$table->bigInteger('crm_medico');
 			$table->bigInteger('cod_atendimento');
 			$table->string('status', 1);

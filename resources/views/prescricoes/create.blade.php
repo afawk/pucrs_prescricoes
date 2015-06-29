@@ -10,7 +10,7 @@
     <fieldset>
     <form class="form-prescricao" method="post" action="{{ route('criarPrescricaoPost', [$atendimento->codigo]) }}">
         <legend style="padding-bottom:10px;">
-            Nova prescrição para '{{ ucwords(strtolower($atendimento->paciente->nome)) }}'
+            Nova prescrição para '{{ $atendimento->paciente->nome }}'
 
             <button class="btn btn-danger pull-right btn-md" style="margin-right:30px;" type="reset">Limpar</button>
             <button class="btn btn-success pull-right btn-md" style="margin-right:10px;" type="submit">Salvar</button>

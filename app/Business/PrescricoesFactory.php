@@ -17,7 +17,7 @@ class PrescricoesFactory
     public function create()
     {
         $prescricao = new Prescricao();
-        $prescricao->data_hora_liberacao = date('Y-m-d H:i:s');
+        //$prescricao->data_hora_liberacao = date('Y-m-d H:i:s');
         $prescricao->crm_medico = $this->data['crm_medico'];
         $prescricao->cod_atendimento = $this->data['cod_atendimento'];
         $prescricao->status = 1;

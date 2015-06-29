@@ -21,15 +21,15 @@ class PrescricoesController extends Controller {
 	 */
 	public function index($idAtendimento)
 	{
-		$prescricao = Prescricao::with('Paciente')
-			->with('Atendimento')
-			->with('Unidade')
-			->with('Medicamentos')
+		$prescricao = Prescricao::with('Atendimento')
+			->with('Itens')
 			->with('Medico')
 			->where(['cod_atendimento' => $idAtendimento])
+			->whereNotNull('data_hora_liberacao')
+			->orderBy('data_hora_liberacao', 'DESC')
 			->first();
 
-		return view('prescricoes.index', ['prescricao' => $prescricao]);
+		return view('prescricoes.show', ['prescricao' => $prescricao]);
 	}
 
 	/**
@@ -81,12 +81,36 @@ class PrescricoesController extends Controller {
 		$prescricao = Prescricao::with('Atendimento')
 			->with('Itens')
 			->with('Medico')
+			//->with('Apresentacao')
+			//->with('ViaUtilizacao')
+			//->with('FrequenciaUtilizacao')
+			//->with('Medicamentos')
 			->where(['codigo' => $id, 'cod_atendimento' => $idAtendimento])
 			->first();
 
-		echo '<pre>';
-		print_r($prescricao);
-		exit;
+		//echo '<pre>';
+		//print_r($prescricao);
+		//exit;
+
+		return view('prescricoes.show', ['prescricao' => $prescricao]);
+	}
+
+	public function liberar($idAtendimento, $id)
+	{
+		$data = [
+		    'codigo' 		  => $id,
+		    'cod_atendimento' => $idAtendimento
+		];
+
+		$updated = Prescricao::where($data)
+			->whereNull('data_hora_liberacao')
+			->update(['data_hora_liberacao' => date('Y-m-d H:i:s')]);
+
+		if ($updated) {
+			return redirect()->route('visualizarPrescricaoAtual', [$idAtendimento]);
+		}
+
+		return redirect()->route('visualizarPrescricao', [$idAtendimento, $id]);
 	}
 
 	/* *

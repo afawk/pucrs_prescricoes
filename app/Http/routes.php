@@ -63,6 +63,13 @@ Route::group(['middleware' => 'auth'], function(){
         ])
         ->where('idAtendimento', '[0-9]+')
         ->where('id', '[0-9]+');
+
+        Route::get('/{idAtendimento}/{id}/liberar', [
+            'as' => 'liberarPrescricao',
+            'uses' => 'PrescricoesController@liberar'
+        ])
+        ->where('idAtendimento', '[0-9]+')
+        ->where('id', '[0-9]+');
     });
 
     Route::get('/searchable', [
