@@ -14,10 +14,37 @@
 		<dt>Idade</dt>
 		<dd>{{ idade($atendimento->paciente->data_nascimento) }}</dd>
 	</dl>
-	<div class="alert alert-info">
-		<p>
-			Este paciente não possui nenhuma prescrição cadastrada
-			<a class="btn btn-primary" href="{{ route('criarPrescricao', [$atendimento->codigo]) }}">Criar Prescrição</a>
-		</p>
-	</div>
+
+	@if (count($prescricoes_lista) > 0)
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+		    Lista de Prescrições
+
+		    <a class="btn btn-success" style="margin-left:30px;" href="{{ route('criarPrescricao', [$atendimento->codigo]) }}">Criar Nova Prescrição</a>
+		  </div>
+		  <div class="panel-body">
+		  	<ul>
+				@foreach ($prescricoes_lista as $prescricao)
+					<li>
+						Prescrição de número {{ $prescricao->codigo }},
+						via <strong>{{ $prescricao->medico->nome }}</strong>,
+
+						@if ($prescricao->data_hora_liberacao)
+							com liberação em {{ date('d/m/Y \a\s H:i:s', strtotime($prescricao->data_hora_liberacao)) }}.
+						@else
+							aguardando liberação.
+						@endif
+					<a href="{{ route('visualizarPrescricao', [$prescricao->atendimento->codigo, $prescricao->codigo]) }}">Ver mais</a></li>
+				@endforeach
+			</ul>
+		  </div>
+		</div>
+	@else
+		<div class="alert alert-warning">
+			<p>
+				<a class="btn btn-success" style="margin-right:30px" href="{{ route('criarPrescricao', [$atendimento->codigo]) }}">Criar Prescrição</a>
+				Este paciente não possui nenhuma prescrição cadastrada
+			</p>
+		</div>
+	@endif
 @stop

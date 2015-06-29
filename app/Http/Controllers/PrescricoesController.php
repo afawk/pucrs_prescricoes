@@ -4,6 +4,7 @@ use Auth;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Presenter\PrescricoesPresenter;
 
 use Illuminate\Http\Request;
 use App\Atendimento;
@@ -21,15 +22,13 @@ class PrescricoesController extends Controller {
 	 */
 	public function index($idAtendimento)
 	{
-		$prescricao = Prescricao::with('Atendimento')
-			->with('Itens')
-			->with('Medico')
-			->where(['cod_atendimento' => $idAtendimento])
-			->whereNotNull('data_hora_liberacao')
-			->orderBy('data_hora_liberacao', 'DESC')
-			->first();
+		$presenter = new PrescricoesPresenter($idAtendimento);
 
-		return view('prescricoes.show', ['prescricao' => $prescricao]);
+		return view('prescricoes.show', [
+		    'prescricao'          => $actualPrescricao = $presenter->actual(),
+		    'prescricao_anterior' => $presenter->previous($actualPrescricao->codigo),
+		    'prescricao_proximo'  => null,
+		]);
 	}
 
 	/**
@@ -78,21 +77,29 @@ class PrescricoesController extends Controller {
 	 */
 	public function show($idAtendimento, $id)
 	{
-		$prescricao = Prescricao::with('Atendimento')
-			->with('Itens')
-			->with('Medico')
-			//->with('Apresentacao')
-			//->with('ViaUtilizacao')
-			//->with('FrequenciaUtilizacao')
-			//->with('Medicamentos')
-			->where(['codigo' => $id, 'cod_atendimento' => $idAtendimento])
-			->first();
+		$presenter = new PrescricoesPresenter($idAtendimento);
 
-		//echo '<pre>';
-		//print_r($prescricao);
-		//exit;
+		return view('prescricoes.show', [
+		    'prescricao'          => $presenter->actual($id, $necessitaLiberacao = false),
+		    'prescricao_anterior' => $presenter->previous($id),
+		    'prescricao_proximo'  => $presenter->next($id),
+		]);
 
-		return view('prescricoes.show', ['prescricao' => $prescricao]);
+		// $prescricao = Prescricao::with('Atendimento')
+		// 	->with('Itens')
+		// 	->with('Medico')
+		// 	//->with('Apresentacao')
+		// 	//->with('ViaUtilizacao')
+		// 	//->with('FrequenciaUtilizacao')
+		// 	//->with('Medicamentos')
+		// 	->where(['codigo' => $id, 'cod_atendimento' => $idAtendimento])
+		// 	->first();
+
+		// //echo '<pre>';
+		// //print_r($prescricao);
+		// //exit;
+
+		// return view('prescricoes.show', ['prescricao' => $prescricao]);
 	}
 
 	public function liberar($idAtendimento, $id)

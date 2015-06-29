@@ -77,7 +77,7 @@ $("#medicamento_form,#aplicacao_form").on('submit', function (e) {
             'apresentação ' + $("#apresentacao_medicamento :selected").text() + ', ' +
             'frequência ' + $("#frequencia_medicamento :selected").text() + ', ' +
             'via ' + $("#via_medicamento :selected").text() + ', ' +
-            'quantidade ' + $("#quantidade_medicamento").val() + ', '
+            'quantidade ' + $("#quantidade_medicamento").val()
         )
     )
 });
