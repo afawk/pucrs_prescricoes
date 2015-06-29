@@ -5,12 +5,12 @@
         <h1></h1>
     </div> -->
 
-<!-- form class="form-horizontal" method="post" action="{{ route('criarPrescricaoPost', [$paciente->registro]) }}" -->
+<!-- form class="form-horizontal" method="post" action="{{ route('criarPrescricaoPost', [$atendimento->codigo]) }}" -->
 <div class="form-horizontal">
     <fieldset>
-    <form class="form-prescricao" method="post" action="{{ route('criarPrescricaoPost', [$paciente->registro]) }}">
+    <form class="form-prescricao" method="post" action="{{ route('criarPrescricaoPost', [$atendimento->codigo]) }}">
         <legend style="padding-bottom:10px;">
-            Nova prescrição para '{{ ucwords(strtolower($paciente->nome)) }}'
+            Nova prescrição para '{{ ucwords(strtolower($atendimento->paciente->nome)) }}'
 
             <button class="btn btn-danger pull-right btn-md" style="margin-right:30px;" type="reset">Limpar</button>
             <button class="btn btn-success pull-right btn-md" style="margin-right:10px;" type="submit">Salvar</button>
@@ -38,7 +38,7 @@
 
     <form id="medicamento_form" style="display:none;">
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-        <input type="hidden" name="paciente" value="{{ $paciente->registro }}" />
+        <input type="hidden" name="paciente" value="{{ $atendimento->codigo }}" />
         <input type="hidden" name="elemento" value="medicamento" />
 
         <div class="form-group">
@@ -105,7 +105,7 @@
 
     <form id="aplicacao_form" style="display:none;">
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-        <input type="hidden" name="paciente" value="{{ $paciente->registro }}" />
+        <input type="hidden" name="paciente" value="{{ $atendimento->codigo }}" />
         <input type="hidden" name="elemento" value="aplicacao" />
 
         <div id="aplicacao_form">
@@ -142,7 +142,7 @@
         </div>
     </form>
 
-    <form class="form-prescricao" method="post" action="{{ route('criarPrescricaoPost', [$paciente->registro]) }}">
+    <form class="form-prescricao" method="post" action="{{ route('criarPrescricaoPost', [$atendimento->codigo]) }}">
         <div class="form-group">
         <hr>
           <label class="col-md-2 control-label" for="save_all"></label>

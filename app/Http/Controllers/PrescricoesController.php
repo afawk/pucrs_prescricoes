@@ -1,65 +1,92 @@
 <?php namespace App\Http\Controllers;
 
+use Auth;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use App\Atendimento;
 use App\Paciente;
+use App\Prescricao;
+use App\Business\PrescricoesFactory;
 
 class PrescricoesController extends Controller {
 
 	/**
 	 * Visualiza a prescrição atual do paciente
 	 *
-	 * @param  int  $idPaciente
+	 * @param  int  $idAtendimento
 	 * @return Response
 	 */
-	public function index($idPaciente)
+	public function index($idAtendimento)
 	{
 		$prescricao = Prescricao::with('Paciente')
 			->with('Atendimento')
 			->with('Unidade')
 			->with('Medicamentos')
 			->with('Medico')
-			->where(['cod' => $idPaciente])
-			->get();
+			->where(['cod_atendimento' => $idAtendimento])
+			->first();
 
-		return view('prescricoes.index', ['prescricao' => $prescricao[0]]);
+		return view('prescricoes.index', ['prescricao' => $prescricao]);
 	}
 
 	/**
 	 * Mostra o formulário para criação de novas prescrições para o paciente
 	 *
-	 * @param  int  $idPaciente
+	 * @param  int  $idAtendimento
 	 * @return Response
 	 */
-	public function create($idPaciente)
+	public function create($idAtendimento)
 	{
-		$paciente = Paciente::where(['registro' => $idPaciente])->get();
-		return view('prescricoes.create', ['paciente' => $paciente[0]]);
+		$atendimento = Atendimento::with('paciente')
+			->where(['codigo' => $idAtendimento])
+			->first();
+
+		return view('prescricoes.create', ['atendimento' => $atendimento]);
 	}
 
 	/**
 	 * Salva uma nova prescrição
 	 *
-	 * @param  int  $idPaciente
+	 * @param  int  $idAtendimento
 	 * @return Response
 	 */
-	public function store(Request $request, $idPaciente)
+	public function store(Request $request, $idAtendimento)
 	{
-		print_r($request->all());
+		$data = $request->all();
+		unset($data['_token']);
+
+		$data['crm_medico']      = Auth::user()->crm;
+		$data['cod_atendimento'] = $idAtendimento;
+
+		$prescricaoCreate = new PrescricoesFactory($data);
+		$ids = $prescricaoCreate->create();
+
+		if (isset($ids['prescricao'])) {
+			return redirect()->route('visualizarPrescricao', [$idAtendimento, $ids['prescricao']]);
+		}
 	}
 
 	/**
 	 * Mostra uma prescrição especifica
 	 *
-	 * @param  int  $idPaciente
+	 * @param  int  $idAtendimento
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($idPaciente, $id)
+	public function show($idAtendimento, $id)
 	{
-		//
+		$prescricao = Prescricao::with('Atendimento')
+			->with('Itens')
+			->with('Medico')
+			->where(['codigo' => $id, 'cod_atendimento' => $idAtendimento])
+			->first();
+
+		echo '<pre>';
+		print_r($prescricao);
+		exit;
 	}
 
 	/* *
@@ -68,7 +95,7 @@ class PrescricoesController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	// public function edit($idPaciente)
+	// public function edit($idAtendimento)
 	// {
 	// 	//
 	// }
@@ -79,7 +106,7 @@ class PrescricoesController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	// public function update($idPaciente, $id)
+	// public function update($idAtendimento, $id)
 	// {
 	// 	//
 	// }
@@ -90,7 +117,7 @@ class PrescricoesController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	// public function destroy($idPaciente)
+	// public function destroy($idAtendimento)
 	// {
 	// 	//
 	// }

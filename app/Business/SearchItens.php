@@ -23,6 +23,10 @@ class SearchItens
                 ->with('apresentacao')
                 ->where(['nome' => $rules['medicamento']])
                 ->first();
+
+            if (!isset($item['codigo'])) {
+                return [];
+            }
         }
         else if (isset($rules['aplicacao'])) {
 

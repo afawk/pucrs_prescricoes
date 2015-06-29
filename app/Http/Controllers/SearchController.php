@@ -25,6 +25,10 @@ class SearchController extends Controller
 		$search = new SearchItens();
 		$result = $search->by($busca);
 
+		if (empty($result)) {
+			return response()->json(array('fail' => 'item not found'), 400);
+		}
+
 		return response()->json($result);
 	}
 };

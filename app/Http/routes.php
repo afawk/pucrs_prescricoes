@@ -39,29 +39,29 @@ Route::group(['middleware' => 'auth'], function(){
     ->where('id', '[0-9]+');
 
     Route::group(['prefix' => '/prescricao'], function() {
-        Route::get('/{idPaciente}', [
+        Route::get('/{idAtendimento}', [
             'as' => 'visualizarPrescricaoAtual',
             'uses' => 'PrescricoesController@index'
         ])
-        ->where('idPaciente', '[0-9]+');
+        ->where('idAtendimento', '[0-9]+');
 
-        Route::get('/{idPaciente}/create', [
+        Route::get('/{idAtendimento}/create', [
             'as' => 'criarPrescricao',
             'uses' => 'PrescricoesController@create'
         ])
-        ->where('idPaciente', '[0-9]+');
+        ->where('idAtendimento', '[0-9]+');
 
-        Route::post('/{idPaciente}/create', [
+        Route::post('/{idAtendimento}/create', [
             'as'   => 'criarPrescricaoPost',
             'uses' => 'PrescricoesController@store'
         ])
-        ->where('idPaciente', '[0-9]+');
+        ->where('idAtendimento', '[0-9]+');
 
-        Route::get('/{idPaciente}/{id}', [
+        Route::get('/{idAtendimento}/{id}', [
             'as' => 'visualizarPrescricao',
             'uses' => 'PrescricoesController@show'
         ])
-        ->where('idPaciente', '[0-9]+')
+        ->where('idAtendimento', '[0-9]+')
         ->where('id', '[0-9]+');
     });
 

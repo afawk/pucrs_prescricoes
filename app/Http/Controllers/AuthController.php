@@ -33,8 +33,8 @@ class AuthController extends Controller {
 			return redirect()->intended('/');
 		} else {
 			return redirect()->back()
-												->withInput()
-												->with('alert', 'Usuário e / ou senha inválido');
+				->withInput()
+				->with('alert', 'Usuário e / ou senha inválido');
 		}
 	}
 

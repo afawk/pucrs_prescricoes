@@ -51,7 +51,7 @@ $("#medicamento_form,#aplicacao_form").on('submit', function (e) {
     e.preventDefault();
     var medicamentoId = $("#medicamento_id").val()
     var medicamentoName =  $("#medicamento").val()
-    var inputUsingKey = ["apresentacao", "frequencia", "via", "quantidade", "condicao"]
+    var inputUsingKey = ["elemento", "apresentacao", "frequencia", "via", "quantidade", "condicao"]
 
     $.each($(this).serializeArray(), function(i, data) {
         var dataName = data.name
