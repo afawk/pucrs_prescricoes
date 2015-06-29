@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCadastroViaTable extends Migration {
+class CreateMedicamentosFrequencia extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,10 @@ class CreateCadastroViaTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('cadastro_via', function(Blueprint $table)
+		Schema::create('medicamento_frequencia', function(Blueprint $table)
 		{
-			$table->increments('codigo');
-			$table->string('descricao', 150);
-			$table->string('abreviacao', 10);
+			$table->integer('cod_medicamento');
+			$table->integer('cod_frequencia');
 		});
 	}
 
@@ -27,7 +26,7 @@ class CreateCadastroViaTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('cadastro_via');
+		Schema::drop('medicamento_frequencia');
 	}
 
 }

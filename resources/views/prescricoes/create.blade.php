@@ -9,11 +9,11 @@
 <div class="form-horizontal">
     <fieldset>
     <form class="form-prescricao" method="post" action="{{ route('criarPrescricaoPost', [$paciente->registro]) }}">
-        <legend>
+        <legend style="padding-bottom:10px;">
             Nova prescrição para '{{ ucwords(strtolower($paciente->nome)) }}'
 
-            <button class="btn btn-danger pull-right btn-sm" style="margin-right:10px;" type="reset">Limpar</button>
-            <button class="btn btn-success pull-right btn-sm" style="margin-right:10px;" type="submit">Salvar</button>
+            <button class="btn btn-danger pull-right btn-md" style="margin-right:30px;" type="reset">Limpar</button>
+            <button class="btn btn-success pull-right btn-md" style="margin-right:10px;" type="submit">Salvar</button>
         </legend>
     </form>
 
@@ -44,7 +44,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="apresentacao_medicamento">Apresentação</label>
           <div class="col-md-6">
-            <select id="apresentacao_medicamento" name="apresentacao" class="form-control">
+            <select required id="apresentacao_medicamento" name="apresentacao" class="form-control">
                 <option value="0">Selecione um medicamento</option>
             </select>
           </div>
@@ -52,7 +52,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="frequencia_medicamento">Frequência</label>
           <div class="col-md-6">
-            <select id="frequencia_medicamento" name="frequencia" class="form-control">
+            <select required id="frequencia_medicamento" name="frequencia" class="form-control">
                 <option value="0">Selecione um medicamento</option>
             </select>
           </div>
@@ -60,9 +60,23 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="via_medicamento">Via</label>
           <div class="col-md-6">
-            <select id="via_medicamento" name="via" class="form-control">
+            <select required id="via_medicamento" name="via" class="form-control">
                 <option value="0">Selecione um medicamento</option>
             </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="quantidade_medicamento">Quantidade</label>
+          <div class="col-md-6">
+            <input required type="text" id="quantidade_medicamento" name="quantidade" class="form-control"/>
+            <span class="help-block">Quantidade por dose. Opções: gramas, comprimidos, mililitros</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="condicao_medicamento">Condição restritiva</label>
+          <div class="col-md-6">
+            <input type="text" id="condicao_medicamento" name="condicao" class="form-control" />
+            <span class="help-block">Caso excepcional na qual o medicamento deverá ser ministrado</span>
           </div>
         </div>
         <div class="form-group">

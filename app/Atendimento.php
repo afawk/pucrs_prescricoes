@@ -11,7 +11,11 @@ class Atendimento extends Model {
 		return $this->belongsTo('App\Paciente', 'cod_paciente', 'registro');
 	}
 
-	public function unidade() {
-		return $this->belongsTo('App\Unidade', 'cod_unidade', 'codigo');
+    public function unidade() {
+        return $this->belongsTo('App\Unidade', 'cod_unidade', 'codigo');
+    }
+
+	public function medico() {
+		return $this->belongsTo('App\Medico', 'medico_responsavel', 'crm');
 	}
 }
