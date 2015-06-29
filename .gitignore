@@ -3,3 +3,5 @@
 .env
 .phpintel
 .bundle/
+.idea
+devstep.yml

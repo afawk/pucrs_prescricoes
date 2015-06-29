@@ -32,6 +32,7 @@
 					<ul class="nav navbar-nav">
 						@if(Auth::check())
 							<li><a href="{{ route('home') }}">Selecionar Unidade</a></li>
+                            <li><a href="{{ route('sessions') }}">Acessos</a></li>
 							<li><a>{{ Auth::user()->nome }}</a></li>
 							<li><a href="{{ route('logout') }}">Sair</a></li>
 						@endif

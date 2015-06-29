@@ -1,5 +1,6 @@
 <?php
 
+use App\Session;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,6 +24,7 @@ class DatabaseSeeder extends Seeder {
 		$this->seedPacientes();
 		$this->seedAtendimentos();
 		$this->seedMedicos();
+        $this->seedSessions();
 	}
 
 	private function seedUnidades()
@@ -100,4 +102,33 @@ class DatabaseSeeder extends Seeder {
 			'senha'   => Hash::make('password'),
 		]);
 	}
+
+    private function seedSessions(){
+        DB::table('sessions')->delete();
+
+        Session::create([
+            'id' => Hash::make('1000'),
+            'payload' => 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiRExEM3JVcHFGeXpVQ0E4Y1YxOW5pSk9ETURaRHBaNGs4bTVSZ3didCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MCI7fXM6NToiZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czozODoibG9naW5fODJlNWQyYzU2YmRkMDgxMTMxOGYwY2YwNzhiNzhiZmMiO2k6MTIzNDU2NztzOjk6Il9zZjJfbWV0YSI7YTozOntzOjE6InUiO2k6MTQzNTU4MzAzMztzOjE6ImMiO2k6MTQzNTU4MTMzMztzOjE6ImwiO3M6MToiMCI7fX0=',
+            'last_activity' => 1435583000,
+            'created_at' => '2015-05-01 00:03:00'
+        ]);
+        Session::create([
+            'id' => Hash::make('1001'),
+            'payload' => 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiRExEM3JVcHFGeXpVQ0E4Y1YxOW5pSk9ETURaRHBaNGs4bTVSZ3didCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MCI7fXM6NToiZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czozODoibG9naW5fODJlNWQyYzU2YmRkMDgxMTMxOGYwY2YwNzhiNzhiZmMiO2k6MTIzNDU2NztzOjk6Il9zZjJfbWV0YSI7YTozOntzOjE6InUiO2k6MTQzNTU4MzAzMztzOjE6ImMiO2k6MTQzNTU4MTMzMztzOjE6ImwiO3M6MToiMCI7fX0=',
+            'last_activity' => 1435583033,
+            'created_at' => '2015-06-29 13:03:50'
+        ]);
+        Session::create([
+            'id' => Hash::make('1002'),
+            'payload' => 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiRExEM3JVcHFGeXpVQ0E4Y1YxOW5pSk9ETURaRHBaNGs4bTVSZ3didCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MCI7fXM6NToiZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czozODoibG9naW5fODJlNWQyYzU2YmRkMDgxMTMxOGYwY2YwNzhiNzhiZmMiO2k6MTIzNDU2NztzOjk6Il9zZjJfbWV0YSI7YTozOntzOjE6InUiO2k6MTQzNTU4MzAzMztzOjE6ImMiO2k6MTQzNTU4MTMzMztzOjE6ImwiO3M6MToiMCI7fX0=',
+            'last_activity' => 1435583043,
+            'created_at' => '2015-06-29 13:04:50'
+        ]);
+        Session::create([
+            'id' => Hash::make('1003'),
+            'payload' => 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiRExEM3JVcHFGeXpVQ0E4Y1YxOW5pSk9ETURaRHBaNGs4bTVSZ3didCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MCI7fXM6NToiZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czozODoibG9naW5fODJlNWQyYzU2YmRkMDgxMTMxOGYwY2YwNzhiNzhiZmMiO2k6MTIzNDU2NztzOjk6Il9zZjJfbWV0YSI7YTozOntzOjE6InUiO2k6MTQzNTU4MzAzMztzOjE6ImMiO2k6MTQzNTU4MTMzMztzOjE6ImwiO3M6MToiMCI7fX0=',
+            'last_activity' => 1435583043,
+            'created_at' => '2015-06-29 13:04:50'
+        ]);
+    }
 }
