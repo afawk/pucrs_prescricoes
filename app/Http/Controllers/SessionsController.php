@@ -11,9 +11,9 @@ class SessionsController extends Controller{
     public function index()
     {
         $acessos = array(
-            'dia' => DB::table('sessions')->select('*')->whereRaw('EXTRACT(DAY FROM created_at) = EXTRACT(DAY FROM NOW())')->count(),
-            'mes' => DB::table('sessions')->select('*')->whereRaw('EXTRACT(MONTH FROM created_at) = EXTRACT(MONTH FROM NOW())')->count(),
-            'ano' => DB::table('sessions')->select('*')->whereRaw('EXTRACT(YEAR FROM created_at) = EXTRACT(YEAR FROM NOW())')->count()
+            'dia' => DB::table('sessions')->where('created_at', '>=', date('Y-m-d'))->count(),
+            'mes' => DB::table('sessions')->where('created_at', '>=', date('Y-m-').'01')->count(),
+            'ano' => DB::table('sessions')->where('created_at', '>=', date('Y').'-01-01')->count()
         );
 
         return view('sessions.index', ['acessos' => $acessos]);
