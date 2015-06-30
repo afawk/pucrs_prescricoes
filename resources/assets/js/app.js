@@ -5,6 +5,7 @@ popSelect = function(elm, data) {
         $(elm).append($('<option>').text('--- Nenhum item encontrado ---').attr('value', '0'));
     };
 
+    $(elm).append($('<option>'));
     $.each(data, function(i, value) {
         $(elm).append($('<option>').text(value.name).attr('value', value.id));
     });
@@ -82,6 +83,11 @@ $("#medicamento_form,#aplicacao_form").on('submit', function (e) {
 
     $(this).find('select, input[type=text]').empty().val('')
     $(this).hide();
+});
+
+$('#cancel_medicamento').on('click', function(e) {
+    e.preventDefault();
+    $('#medicamento_form').hide()
 });
 
 $("#selectedList").on('click', 'p > a', function(e) {

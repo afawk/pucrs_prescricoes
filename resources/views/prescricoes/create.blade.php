@@ -84,6 +84,7 @@
           <label class="col-md-4 control-label" for="send"></label>
           <div class="col-md-6">
             <button type="submit" id="add_medicamento" name="add_medicamento" class="btn btn-primary">Adicionar</button>
+            <a id="cancel_medicamento" href="#">Cancelar</a>
           </div>
         </div>
     </form>
