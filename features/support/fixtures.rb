@@ -33,7 +33,7 @@ module Fixtures
       atendimento = PrescricoesDB[:atendimento].where(cod_paciente: cod_paciente, cod_unidade: cod_unidade).first
       return atendimento if atendimento
 
-      PrescricoesDB[:atendimento].insert(cod_paciente: cod_paciente, cod_unidade: cod_unidade)
+      PrescricoesDB[:atendimento].insert(cod_paciente: cod_paciente, cod_unidade: cod_unidade, data_inicio: Time.now)
       PrescricoesDB[:atendimento].where(cod_paciente: cod_paciente, cod_unidade: cod_unidade).first
     end
 
