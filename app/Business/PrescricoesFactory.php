@@ -27,7 +27,8 @@ class PrescricoesFactory
         $id = $prescricao->codigo;
         $listItens = [];
 
-        foreach ($this->data['elemento'] as $idItem => $type) {
+        $elementos = isset($this->data['elemento']) ? $this->data['elemento'] : [];
+        foreach ($elementos as $idItem => $type) {
             $type = ($type == 'medicamento') ? 'm' : 'a';
 
             $item = new PrescricaoItem();
