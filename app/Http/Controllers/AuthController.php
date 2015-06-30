@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use Auth;
+use Session;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
@@ -44,6 +45,7 @@ class AuthController extends Controller {
 	public function destroy()
 	{
 		Auth::logout();
+		Session::regenerate();
 		return redirect()->intended('/');
 	}
 
