@@ -15,9 +15,10 @@ class AddFieldsAtendimentosTable extends Migration {
 		Schema::table('atendimento', function(Blueprint $table)
 		{
 			$table->integer('medico_responsavel')->nullable();
-			$table->date('data_inicio')->nullable();
-			$table->date('data_fim')->nullable();
+			$table->datetime('data_inicio');
+			$table->datetime('data_fim')->nullable();
 			$table->integer('cod_leito')->nullable();
+			$table->string('descricao_alta', 250)->nullable();
 		});
 	}
 
@@ -33,6 +34,7 @@ class AddFieldsAtendimentosTable extends Migration {
 			$table->dropColumn('data_inicio');
 			$table->dropColumn('data_fim');
 			$table->dropColumn('cod_leito');
+			$table->dropColumn('descricao_alta');
 		});
 	}
 
