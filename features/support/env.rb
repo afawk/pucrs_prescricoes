@@ -4,7 +4,7 @@ require 'sequel'
 
 require 'active_support/all'
 
-driver = ENV.fetch('JS_DRIVER', 'poltergeist').to_sym
+driver = ENV.fetch('JS_DRIVER', 'selenium').to_sym
 
 Capybara.current_driver    = driver
 Capybara.default_driver    = driver

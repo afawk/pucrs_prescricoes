@@ -143,6 +143,29 @@ module Fixtures
         medicamento_apresentacao: [
           { descricao: 'Comprimido', abreviacao: 'unid' }
         ]
+      },
+      "Omepazol" => {
+        nome: "Omepazol",
+        medicamento_frequencia: [
+          { descricao: 'A cada hora' },
+          { descricao: 'A cada 2 horas' },
+          { descricao: 'A cada 3 horas' },
+          { descricao: 'A cada 4 horas' },
+          { descricao: 'A cada 5 horas' },
+          { descricao: 'A cada 6 horas' },
+          { descricao: 'Três vezes ao dia' },
+          { descricao: 'Duas vezes ao dia' },
+          { descricao: 'Uma dose diária' },
+          { descricao: 'Dose única' },
+          { descricao: 'Somente sob crise' }
+        ],
+        medicamento_via: [
+          { descricao: 'Nasal', abreviacao: 'nasal' }
+        ],
+        medicamento_apresentacao: [
+          { descricao: 'Ampola', abreviacao: 'unid' },
+          { descricao: 'Frasco', abreviacao: 'unid' }
+        ]
       }
     }
   end
