@@ -32,11 +32,19 @@ Route::group(['middleware' => 'auth'], function(){
     ])
     ->where('codUnidade', '[0-9]+');
 
-    Route::get('/atendimentos/{id}', [
-        'as' => 'atendimentoShow',
-        'uses' => 'AtendimentosController@show'
-    ])
-    ->where('id', '[0-9]+');
+    Route::group(['prefix' => '/atendimentos'], function() {
+        Route::get('/{id}', [
+            'as' => 'atendimentoShow',
+            'uses' => 'AtendimentosController@show'
+        ])
+        ->where('id', '[0-9]+');
+
+        Route::post('/{id}/alta', [
+            'as' => 'atendimentoPrescreverAlta',
+            'uses' => 'AtendimentosController@prescreverAlta'
+        ])
+        ->where('id', '[0-9]+');
+    });
 
     Route::group(['prefix' => '/prescricao'], function() {
         Route::get('/{idAtendimento}', [

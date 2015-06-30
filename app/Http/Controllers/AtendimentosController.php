@@ -3,6 +3,8 @@
 use App\Atendimento;
 use App\Prescricao;
 
+use Illuminate\Http\Request;
+
 class AtendimentosController extends Controller {
 
 	public function index($codUnidade)
@@ -29,6 +31,30 @@ class AtendimentosController extends Controller {
 		    'atendimento' => $atendimento,
 		    'prescricoes_lista' => $prescricoesList,
 		]);
+	}
+
+	public function prescreverAlta(Request $request, $id)
+	{
+		$data = $request->all();
+
+		if (!isset($data['descr_alta'])) {
+			return null;
+		}
+
+		$atendimento = Atendimento::
+			where('codigo', $id)
+			->whereNull('descricao_alta')
+			->whereNull('data_fim')
+			->update([
+			    'descricao_alta' => $data['descr_alta'],
+			    'data_fim' => date('Y-m-d H:i:s'),
+			]);
+
+		if ($atendimento) {
+			return redirect()->route('atendimentoShow', [$id]);
+		}
+
+		return redirect()->route('home');
 	}
 
 }

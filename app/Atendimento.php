@@ -4,7 +4,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Atendimento extends Model {
 	protected $table = 'atendimento';
-	protected $primaryKey = 'codigo';
+    protected $primaryKey = 'codigo';
+	protected $fillable = ['descricao_alta'];
+
 	public $timestamps = false;
 
 	public function paciente() {

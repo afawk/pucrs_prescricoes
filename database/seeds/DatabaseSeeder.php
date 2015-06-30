@@ -116,7 +116,6 @@ class DatabaseSeeder extends Seeder {
 
 		$recente = Atendimento::create([
 			'data_inicio' => date('Y-m-d H:i:s', strtotime('-15 days')),
-			'data_fim'    => date('Y-m-d H:i:s', strtotime('-3 days')),
 			'cod_unidade' => $recuperacao->codigo,
 			'cod_paciente' => $novinho->registro,
 			'medico_responsavel' => $unicomed->crm,
