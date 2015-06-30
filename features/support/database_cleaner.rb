@@ -1,4 +1,5 @@
 Before do |_|
+  PrescricoesDB[:sessions].delete
   PrescricoesDB[:medico].delete
   PrescricoesDB[:atendimento].delete
   PrescricoesDB[:paciente].delete
