@@ -9,6 +9,7 @@
 <div class="form-horizontal">
     <fieldset>
     <form class="form-prescricao" method="post" action="{{ route('criarPrescricaoPost', [$atendimento->codigo]) }}">
+        <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
         <legend style="padding-bottom:10px;">
             Nova prescrição para '{{ $atendimento->paciente->nome }}'
 
@@ -143,6 +144,7 @@
     </form>
 
     <form class="form-prescricao" method="post" action="{{ route('criarPrescricaoPost', [$atendimento->codigo]) }}">
+        <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
         <div class="form-group">
         <hr>
           <label class="col-md-2 control-label" for="save_all"></label>
