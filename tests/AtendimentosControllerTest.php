@@ -19,7 +19,11 @@ class AtendimentosControllerTest extends TestCase {
 	{
 		$unidade = App\Unidade::create(['nome' => 'PEDIATRIA']);
 		$paciente = App\Paciente::create(['nome' => 'Joao']);
-		$atendimento = App\Atendimento::create(['cod_unidade' => $unidade->codigo, 'cod_paciente' => $paciente->registro]);
+		$atendimento = App\Atendimento::create([
+			'cod_unidade' => $unidade->codigo,
+			'cod_paciente' => $paciente->registro,
+			'data_inicio'  => date('Y-m-d H:i:s')
+		]);
 
 		$response = $this->action('GET', 'AtendimentosController@show', ['codigo' => $atendimento->codigo]);
 
