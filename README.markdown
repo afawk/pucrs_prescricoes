@@ -37,7 +37,7 @@ php artisan serve --port 8080 --host 0.0.0.0
 
 ```sh
 npm install
-gulp --watch
+gulp watch --production
 ```
 
 ## Scripts de deploy
