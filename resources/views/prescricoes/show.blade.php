@@ -15,9 +15,13 @@
 @else
     <div class="alert alert-warning" role="alert">
         Prescrição médica aguardando liberação
-        <a class="btn btn-success pull-right btn-sm" href="{{ route('liberarPrescricao', [$prescricao->atendimento->codigo, $prescricao->codigo])  }}">
-            Liberar prescrição
-        </a>
+        @if (sizeof($prescricao->itens) > 0)
+          <a class="btn btn-success pull-right btn-sm" href="{{ route('liberarPrescricao', [$prescricao->atendimento->codigo, $prescricao->codigo])  }}">
+        @else
+          <a class="btn btn-success pull-right btn-sm" href="#" onclick="javascript:alert('A prescrição não pode ser liberada pois não possui nenhum item associado.')">
+        @endif
+              Liberar prescrição
+          </a>
     </div>
 @endif
 
