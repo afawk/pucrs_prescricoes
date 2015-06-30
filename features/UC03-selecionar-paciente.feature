@@ -13,6 +13,6 @@ Funcionalidade: UC03 - Selecionar Paciente
   Cenário: TS03b - Selecionar paciente com prescrição em aberto:
     Dado que eu estou logado no sistema
     E que o paciente "João Silva" está em atendimento na unidade "Pediatria"
-    E eu prescrevi um "Paracetamol" a cada 6 horas para "João Silva"
-    Quando eu seleciono o paciente "João Silva" que está em atendimento na unidade "Pediatria"
-    Então eu devo ver os dados da prescrição que está em aberto
+    E eu prescrevi 2 comprimidos de dipirona (oral) a cada hora para o paciente
+    Quando eu visualizo a prescrição em aberto
+    Então eu devo ver o medicamento prescrito

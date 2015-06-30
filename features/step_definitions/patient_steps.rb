@@ -1,8 +1,7 @@
 Dado(/^(?:que )?o paciente "([^"]*)" está em atendimento na unidade "([^"]*)"$/) do |nome_paciente, nome_unidade|
   @paciente = Fixtures.paciente(nome_paciente)
   @unidade = Fixtures.unidade(nome_unidade)
-
-  Fixtures.atribui_paciente_a_unidade(@paciente[:registro], @unidade[:codigo])
+  @atendimento = Fixtures.atribui_paciente_a_unidade(@paciente[:registro], @unidade[:codigo])
 end
 
 Quando(/^eu seleciono o paciente "([^"]*)" que está em atendimento na unidade "([^"]*)"$/) do |nome_paciente, nome_unidade|
