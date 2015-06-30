@@ -92,3 +92,12 @@ $("#selectedList").on('click', 'p > a', function(e) {
     }
 });
 
+
+$("#prescr_alta").on('click', function(e) {
+    e.preventDefault()
+    $("div[rel='prescr_alta']").toggle()
+});
+
+$("#cancelar_prescr_alta").on('click', function(e) {
+    $("div[rel='prescr_alta']").hide()
+});
