@@ -17,7 +17,8 @@ elixir(function(mix) {
     mix.less('app.less');
 
 		mix.scripts([
-			'fix-for-ie10.js'
+			'fix-for-ie10.js',
+			'app.js'
 		]);
 
 		mix.phpUnit();
