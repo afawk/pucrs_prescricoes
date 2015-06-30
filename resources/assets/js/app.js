@@ -26,10 +26,10 @@ $("a[rel='searchable']").on('click', function (e) {
     var elm = $('#' + searchBy);
     var addSearch = $('#add_' + searchBy)
 
-    $('#' + searchBy + '_form').show()
     addSearch.addClass('btn-primary').removeClass('btn-danger').prop('disabled', true).text('Carregando...')
 
     $.getJSON('/searchable', {item: searchBy, search: elm.val()}).done(function(json) {
+        $('#' + searchBy + '_form').show()
         popSelect('#apresentacao_' + searchBy, json.apresentacao)
         popSelect('#frequencia_' + searchBy, json.frequencia)
         popSelect('#via_' + searchBy, json.via)
@@ -40,7 +40,8 @@ $("a[rel='searchable']").on('click', function (e) {
         addSearch.prop('disabled', false).text('Adicionar')
     })
     .fail(function(elm) {
-        addSearch.removeClass('btn-primary').addClass('btn-danger').text('Tente novamente')
+        $('#' + searchBy + '_form').hide()
+        alert('Medicamento não encontrado, tente novamente');
     })
 
 });
@@ -78,6 +79,9 @@ $("#medicamento_form,#aplicacao_form").on('submit', function (e) {
             'quantidade ' + $("#quantidade_medicamento").val()
         )
     )
+
+    $(this).find('select, input[type=text]').empty().val('')
+    $(this).hide();
 });
 
 $("#selectedList").on('click', 'p > a', function(e) {
