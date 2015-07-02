@@ -90,36 +90,47 @@ class DatabaseSeeder extends Seeder {
 
 		DB::table('atendimento')->delete();
 
-		$poucoTempo = Atendimento::create([
+		Atendimento::create([
 			'data_inicio'        => date('Y-m-d H:i:s', strtotime('-45 days')),
-			'data_fim'           => date('Y-m-d H:i:s', strtotime('-40 days')),
-			'cod_unidade'        => $pediatria->codigo,
-			'cod_paciente'       => $novinha->registro,
-			'medico_responsavel' => $unicomed->crm,
-		]);
+				'cod_unidade'        => $pediatria->codigo,
+				'cod_paciente'       => $novinha->registro,
+				'medico_responsavel' => $unicomed->crm,
+			]);
 
-		$algumTempo = Atendimento::create([
+		Atendimento::create([
 			'data_inicio' => date('Y-m-d H:i:s', strtotime('-70 days')),
-			'data_fim'    => date('Y-m-d H:i:s', strtotime('-30 days')),
-			'cod_unidade' => $recuperacao->codigo,
-			'cod_paciente' => $preadolescente->registro,
-			'medico_responsavel' => $unicomed->crm,
-		]);
+				'cod_unidade' => $recuperacao->codigo,
+				'cod_paciente' => $preadolescente->registro,
+				'medico_responsavel' => $unicomed->crm,
+			]);
 
-		$demorado = Atendimento::create([
+		Atendimento::create([
 			'data_inicio' => date('Y-m-d H:i:s', strtotime('-100 days')),
-			'data_fim'    => date('Y-m-d H:i:s', strtotime('-15 days')),
-			'cod_unidade' => $psiquiatria->codigo,
-			'cod_paciente' => $geracaox->registro,
-			'medico_responsavel' => $unicomed->crm,
-		]);
+				'cod_unidade' => $psiquiatria->codigo,
+				'cod_paciente' => $geracaox->registro,
+				'medico_responsavel' => $unicomed->crm,
+			]);
 
-		$recente = Atendimento::create([
+		Atendimento::create([
+			'data_inicio' => date('Y-m-d H:i:s', strtotime('-100 days')),
+				'cod_unidade' => $psiquiatria->codigo,
+				'cod_paciente' => $adolescente->registro,
+				'medico_responsavel' => $unicomed->crm,
+			]);
+
+		Atendimento::create([
 			'data_inicio' => date('Y-m-d H:i:s', strtotime('-15 days')),
-			'cod_unidade' => $recuperacao->codigo,
-			'cod_paciente' => $novinho->registro,
-			'medico_responsavel' => $unicomed->crm,
-		]);
+				'cod_unidade' => $recuperacao->codigo,
+				'cod_paciente' => $novinho->registro,
+				'medico_responsavel' => $unicomed->crm,
+			]);
+
+		Atendimento::create([
+			'data_inicio' => date('Y-m-d H:i:s', strtotime('-15 days')),
+				'cod_unidade' => $pediatria->codigo,
+				'cod_paciente' => $piazinho->registro,
+				'medico_responsavel' => $unicomed->crm,
+			]);
 	}
 
 	private function seedMedicamentos() {
