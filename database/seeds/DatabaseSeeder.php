@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder {
 
 		$this->seedUnidades();
 		$this->seedMedicamentos();
-        $this->seedSessions();
+        // $this->seedSessions();
 	}
 
 	private function seedUnidades()
